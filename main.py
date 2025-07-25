@@ -10,8 +10,8 @@ if "show_main" not in st.session_state:
 # === Welcome Screen ===
 if not st.session_state.show_main:
     st.markdown("## 👋 Welcome!")
-    st.markdown("### Let's find out how much time you spend on your phone or tablet 📱")
-    st.markdown("### And see what that looks like over your whole life ⏳")
+    st.markdown("### Let's find out how much time you spend on your phone or tablet.📱")
+    st.markdown("### And see what that looks like over your whole life.")
     st.markdown("---")
     st.markdown("""
     📖 **Ephesians 5:15-16**  
