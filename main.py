@@ -23,8 +23,6 @@ if st.session_state.show_intro:
     if time.time() - st.session_state.intro_time > 3:
         st.session_state.show_intro = False
         st.experimental_rerun()
-    else:
-        st.stop()
 
 # === Main App ===
 st.title("📱 Screen Time Calculator")
