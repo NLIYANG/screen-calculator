@@ -40,7 +40,7 @@ else:
         st.markdown(f"- 📆 **{months_per_year} full months** every year")
         st.markdown(f"- 🧓 **{years_in_lifetime} years** in your lifetime (assuming 70 years)")
 
-        if hours_per_day < 4:
+        if hours_per_day < 5:
             st.balloons()
             st.success("🎉 Great job keeping your screen time low!")
 
