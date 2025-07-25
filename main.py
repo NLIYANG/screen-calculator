@@ -22,9 +22,10 @@ if not st.session_state.show_main:
         st.session_state.show_main = True
         st.rerun()
 
+
 # === Main Calculator App ===
 else:
-    st.title("📱 Screen Time Calculator")
+    st.title("📱 Screen-time Steward")
 
     name = st.text_input("👶 What's your name?")
     hours_per_day = st.slider("⏰ How many hours do you spend on screens per day?", 0.0, 24.0, 1.0, step=0.5)
