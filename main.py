@@ -1,6 +1,3 @@
-
-
-
 import streamlit as st
 
 # Set up page
@@ -34,18 +31,22 @@ else:
 
     if name and hours_per_day > 0:
         days_per_week = round((hours_per_day * 7) / 24, 2)
-        weeks_per_year = round((hours_per_day * 365) / (24 * 7), 2)
+        months_per_year = round((hours_per_day * 365) / (24 * 30), 2)
         years_in_lifetime = round((hours_per_day * 70) / 24, 2)
 
         st.markdown(f"### Hi **{name}**!")
         st.success(f"At **{hours_per_day} hours** per day, that means:")
         st.markdown(f"- 📅 **{days_per_week} full days** per week")
-        st.markdown(f"- 🗓 **{weeks_per_year} weeks** every year")
-        st.markdown(f"- 🧓 **{years_in_lifetime} years** in your lifetime (70 years)")
+        st.markdown(f"- 📆 **{months_per_year} full months** every year")
+        st.markdown(f"- 🧓 **{years_in_lifetime} years** in your lifetime (assuming 70 years)")
+
+        if hours_per_day < 4:
+            st.balloons()
+            st.success("🎉 Great job keeping your screen time low!")
 
         st.info("⏳ Time is a gift. Use it wisely!")
 
-    elif name and hours_per_day <= 3:
+    elif name and hours_per_day == 0:
         st.balloons()
         st.success(f"Way to go, {name}! No screen time today! 🎉")
 
