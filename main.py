@@ -20,7 +20,7 @@ if not st.session_state.show_main:
 
     if st.button("✅ Ready? Let’s go!"):
         st.session_state.show_main = True
-        st.experimental_rerun()
+        st.rerun()
 
 # === Main Calculator App ===
 else:
