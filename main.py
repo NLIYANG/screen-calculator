@@ -97,8 +97,10 @@ if st.session_state.show_intro:
 
 # Bible Verse on Stewardship
 st.markdown("---")
-st.markdown("📖 **Ephesians 5:15-16**  
-*“Look carefully then how you walk, not as unwise but as wise, making the best use of the time, because the days are evil.”*")
+st.markdown("""
+📖 **Ephesians 5:15-16**  
+*“Look carefully then how you walk, not as unwise but as wise, making the best use of the time, because the days are evil.”*
+""")
 
 # Input Section
 st.markdown("---")
