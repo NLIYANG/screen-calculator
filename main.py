@@ -1,31 +1,75 @@
 import streamlit as st
+import time
 
-# Title
-st.title("📱 Screen Time Calculator for Kids")
+# Minimalist Style
+st.set_page_config(page_title="Screen Time Steward", layout="centered")
 
-# Input: Name
-name = st.text_input("What's your name?")
+# Function to simulate progressive text reveal
+def typewriter(message, delay=0.1):
+    for word in message.split():
+        st.markdown(f"### {word} ", unsafe_allow_html=True)
+        time.sleep(delay)
 
-# Input: Hours of screen time per day
-hours_per_day = st.number_input("How many hours do you spend on screens per day?", min_value=0.0, max_value=24.0, step=0.5)
+# Welcome Section
+st.title("📱 Screen Time Steward")
 
-# Calculation and Output
+# Show text progressively (simulating a conversation)
+if 'show_intro' not in st.session_state:
+    st.session_state.show_intro = True
+
+if st.session_state.show_intro:
+    with st.empty():
+        typewriter("Let's", 0.2)
+        time.sleep(0.3)
+        typewriter("see", 0.2)
+        time.sleep(0.3)
+        typewriter("how", 0.2)
+        time.sleep(0.3)
+        typewriter("much", 0.2)
+        time.sleep(0.3)
+        typewriter("time", 0.2)
+        time.sleep(0.3)
+        typewriter("you", 0.2)
+        time.sleep(0.3)
+        typewriter("spend", 0.2)
+        time.sleep(0.3)
+        typewriter("on", 0.2)
+        time.sleep(0.3)
+        typewriter("your", 0.2)
+        time.sleep(0.3)
+        typewriter("phone...", 0.2)
+        time.sleep(1.5)
+        st.session_state.show_intro = False
+        st.rerun()
+
+# Bible Verse on Stewardship
+st.markdown("---")
+st.markdown("📖 **Ephesians 5:15-16**  
+*“Look carefully then how you walk, not as unwise but as wise, making the best use of the time, because the days are evil.”*")
+
+# Input Section
+st.markdown("---")
+name = st.text_input("👋 What's your name?")
+hours_per_day = st.slider("⏰ How many hours do you spend on screens per day?", 0.0, 24.0, 1.0, step=0.5)
+
+# Output Section
 if name and hours_per_day > 0:
     days_per_week = round((hours_per_day * 7) / 24, 2)
     weeks_per_year = round((hours_per_day * 365) / (24 * 7), 2)
-    years_in_lifetime = round((hours_per_day * 365 * 70) / (24 * 365), 2)  # Simplifies to hours_per_day * 70 / 24
+    years_in_lifetime = round((hours_per_day * 70) / 24, 2)
 
-    st.markdown(f"### 👋 Hi {name}!")
-    st.markdown(f"At **{hours_per_day} hours** of screen time per day:")
-    st.markdown(f"- You will spend **{days_per_week} full days** on screens every week.")
-    st.markdown(f"- That adds up to **{weeks_per_year} weeks** per year.")
-    st.markdown(f"- Over a lifetime (up to 70 years), that's **{years_in_lifetime} years** spent looking at screens.")
+    st.markdown(f"### 👋 Hi **{name}**!")
+    st.success(f"At **{hours_per_day} hours** per day, that means:")
+    st.markdown(f"- 📅 **{days_per_week} full days** per week")
+    st.markdown(f"- 🗓 **{weeks_per_year} weeks** every year")
+    st.markdown(f"- 🧓 **{years_in_lifetime} years** over your lifetime (if you live to 70)")
 
-    st.info("📵 Imagine what else you could do with those years!")
+    st.info("⏳ Time is a gift—how will you use it wisely?")
 
 elif name and hours_per_day == 0:
-    st.markdown(f"Great job, {name}! No screen time today? 🎉 Keep it up!")
+    st.balloons()
+    st.success(f"Way to go, {name}! No screen time today! 🎉")
 
-# Optional: Footer
+# Footer
 st.markdown("---")
-st.caption("Created to help kids understand the importance of screen time balance. 👀💡")
+st.caption("Built to help kids reflect on time and stewardship 📱🕊")
