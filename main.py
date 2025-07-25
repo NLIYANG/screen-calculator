@@ -45,7 +45,7 @@ else:
 
         st.info("⏳ Time is a gift. Use it wisely!")
 
-    elif name and hours_per_day == 0:
+    elif name and hours_per_day <= 3:
         st.balloons()
         st.success(f"Way to go, {name}! No screen time today! 🎉")
 
